@@ -22,7 +22,7 @@ data instance Sing (x :: Random a b c) where
   SSetSeed   :: Sing n -> Sing (SetSeed n)
 
 instance (Good a, Good b, Good c) => SingKind (Random a b c) where
-  type DemoteRep (Random a b c) = Random a b c
+  type Demote (Random a b c) = Random a b c
 
   fromSing SGetRandom = GetRandom
   fromSing (SSetSeed x) = SetSeed (fromSing x)

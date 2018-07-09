@@ -58,7 +58,7 @@ data instance Sing (x :: Vars y) where
   SVCons :: Sing a -> Sing b -> Sing (a :^ b)
 
 instance GoodCtx g => SingKind (Vars g) where
-  type DemoteRep (Vars g) = Vars g
+  type Demote (Vars g) = Vars g
 
   fromSing SVNil = VNil
   fromSing (a `SVCons` b) = fromSing a :^ fromSing b

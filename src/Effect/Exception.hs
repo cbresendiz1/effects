@@ -19,7 +19,7 @@ data instance Sing (e :: Exception a b c d) where
   SRaise :: Sing x -> Sing (Raise x)
 
 instance (Good a, Good b, Good c, Good d) => SingKind (Exception a b c d) where
-  type DemoteRep (Exception a b c d) = Exception a b c d
+  type Demote (Exception a b c d) = Exception a b c d
 
   fromSing (SRaise x) = Raise (fromSing x)
 

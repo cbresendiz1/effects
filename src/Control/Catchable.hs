@@ -12,7 +12,7 @@ import Prelude hiding ( String, show )
 import System.IO.Error
 
 class Catchable (m :: Type -> Type) t where
-  throw :: (DemoteRep a ~ a, SingKind a) => t -> m a
+  throw :: (Demote a ~ a, SingKind a) => t -> m a
   catch :: m a -> (t -> m a) -> m a
 
 instance Catchable Maybe () where

@@ -20,7 +20,7 @@ data instance Sing (e :: State a b c) where
   SPut :: Sing x -> Sing (Put x)
 
 instance (Good a, Good b, Good c) => SingKind (State a b c) where
-  type DemoteRep (State a b c) = State a b c
+  type Demote (State a b c) = State a b c
 
   fromSing SGet = Get
   fromSing (SPut x) = Put (fromSing x)

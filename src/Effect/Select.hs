@@ -18,7 +18,7 @@ data instance Sing (x :: Selection a b c) where
   SSelect :: Sing xs -> Sing (Select xs)
 
 instance (Good a, Good b, Good c) => SingKind (Selection a b c) where
-  type DemoteRep (Selection a b c) = Selection a b c
+  type Demote (Selection a b c) = Selection a b c
 
   fromSing (SSelect xs) = Select (fromSing xs)
 

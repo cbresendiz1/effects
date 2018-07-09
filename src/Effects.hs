@@ -18,7 +18,7 @@ import Prelude ( Either(..), error,
 import Control.Catchable
 import Data.Functor.Identity
 
-type Good x = (DemoteRep x ~ x, SingKind x)
+type Good x = (Demote x ~ x, SingKind x)
 
 type Effect = Type -> Type -> Type -> Type
 
@@ -45,7 +45,7 @@ data instance Sing (x :: SubList ys xs) where
 type SSubList = (Sing :: SubList (ys :: [a]) (xs :: [a]) -> Type)
 
 instance SingKind (SubList ys xs) where
-  type DemoteRep (SubList ys xs) = SubList ys xs
+  type Demote (SubList ys xs) = SubList ys xs
 
   fromSing SSubNil = SubNil
   fromSing (SKeep p) = Keep (fromSing p)
@@ -105,7 +105,7 @@ data instance Sing (elem :: EffElem x a xs) where
   SThere :: Sing z -> Sing (There z)
 
 instance SingKind (EffElem x a xs) where
-  type DemoteRep (EffElem x a xs) = EffElem x a xs
+  type Demote (EffElem x a xs) = EffElem x a xs
 
   fromSing SHere = Here
   fromSing (SThere p) = There (fromSing p)

@@ -1,0 +1,82 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 16728ede78582f444f59e09f985061c9cf52a167940a35888c6b3f2eecb8d965
+
+name:           effects
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/goldfirere/effects#readme>
+homepage:       https://github.com/goldfirere/effects#readme
+bug-reports:    https://github.com/goldfirere/effects/issues
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/goldfirere/effects
+
+library
+  exposed-modules:
+      All
+      Control.Catchable
+      Data.AChar
+      Data.Nat
+      Effect.Exception
+      Effect.File
+      Effect.Random
+      Effect.Select
+      Effect.State
+      Effect.StdIO
+      Effects
+      Effects2
+      EffectsCopy
+      Lib
+      Sec211
+      Sec212
+      Sec213
+      Sec225
+      Sec226
+      Sec4
+      Util.If
+      Util.MkChar
+      Util.Singletons
+  other-modules:
+      Paths_effects
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , random >=1.1 && <2
+    , singletons >=2.3.1 && <3
+  default-language: Haskell2010
+
+executable effects-exe
+  main-is: Main.hs
+  other-modules:
+      MainEffects
+      Paths_effects
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , effects
+  default-language: Haskell2010
+
+test-suite effects-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_effects
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , effects
+  default-language: Haskell2010

@@ -23,7 +23,7 @@ data instance Sing (x :: StdIO a b c) where
   SGetStr :: Sing GetStr
 
 instance (Good a, Good b, Good c) => SingKind (StdIO a b c) where
-  type DemoteRep (StdIO a b c) = StdIO a b c
+  type Demote (StdIO a b c) = StdIO a b c
 
   fromSing (SPutStr s) = PutStr (fromSing s)
   fromSing SGetStr = GetStr

@@ -42,7 +42,7 @@ data instance Sing (x :: FileIO a b c) where
   SEOF :: Sing EOF
 
 instance SingKind (FileIO a b c) where
-  type DemoteRep (FileIO a b c) = FileIO a b c
+  type Demote (FileIO a b c) = FileIO a b c
 
   fromSing (SOpenRead s) = OpenRead (fromSing s)
   fromSing (SOpenWrite s) = OpenWrite (fromSing s)
